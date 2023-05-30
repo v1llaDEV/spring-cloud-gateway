@@ -1,0 +1,7 @@
+cloud:
+    gateway:
+      routes:
+        - id: api-chess-management
+          uri: lb://api-chess-management
+      predicates:
+        - Path=/api/chess/**
