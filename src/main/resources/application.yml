@@ -1,7 +1,19 @@
-cloud:
+spring:
+  application.name: spring-cloud-gateway
+  cloud:
+    discovery.enabled: true
     gateway:
       routes:
-        - id: api-chess-management
-          uri: lb://api-chess-management
-      predicates:
-        - Path=/api/chess/**
+        - id: API-CHESS-MANAGEMENT
+          uri: lb://API-CHESS-MANAGEMENT
+          predicates:
+            - Path=/api-chess-management/**
+
+server.port: 8100
+          
+eureka:
+    client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka
